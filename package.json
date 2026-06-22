@@ -1,0 +1,55 @@
+{
+  "name": "pi-ultraplan",
+  "version": "0.1.0",
+  "description": "Provider-agnostic ultraplan engine for Pi — fan-out planning, adversarial verification, structured plans, worktree-isolated execution. Reference adapter: fairy-tales-deepseek-openai / deepseek-v4-pro.",
+  "type": "module",
+  "keywords": [
+    "pi-package",
+    "ultraplan",
+    "planning",
+    "code-generation",
+    "adversarial-review"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/KcAnom/pi-ultraplan"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "files": [
+    "extensions/",
+    "src/",
+    ".env.example",
+    "README.md",
+    "ROADMAP.md",
+    "tsconfig.json"
+  ],
+  "pi": {
+    "extensions": [
+      "./extensions"
+    ]
+  },
+  "scripts": {
+    "serve": "tsx src/cli.ts serve",
+    "plan": "tsx src/cli.ts plan",
+    "eval": "tsx src/cli.ts eval",
+    "status": "tsx src/cli.ts status",
+    "approve": "tsx src/cli.ts approve",
+    "reject": "tsx src/cli.ts reject",
+    "stop": "tsx src/cli.ts stop",
+    "test": "vitest run"
+  },
+  "peerDependencies": {
+    "@earendil-works/pi-coding-agent": "*",
+    "@earendil-works/pi-tui": "*",
+    "@sinclair/typebox": "*"
+  },
+  "devDependencies": {
+    "@types/node": "^26.0.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.6.0",
+    "vitest": "^4.1.9"
+  }
+}

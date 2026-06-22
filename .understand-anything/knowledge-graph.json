@@ -1,0 +1,1019 @@
+{
+  "version": "1.0.0",
+  "project": {
+    "name": "pi-ultraplan",
+    "languages": [
+      "typescript"
+    ],
+    "frameworks": [
+      "pi-coding-agent"
+    ],
+    "description": "Provider-agnostic ultraplan engine for Pi",
+    "analyzedAt": "2026-06-21T22:20:00Z",
+    "gitCommitHash": "a9d1dbab420537c33c0127812f1a931c7ca5630f"
+  },
+  "nodes": [
+    {
+      "id": "file:extensions/ultraplan.ts",
+      "type": "file",
+      "name": "ultraplan",
+      "filePath": "extensions/ultraplan.ts",
+      "summary": "Pi extension \u2014 8 tools, 2 commands, footer, status, safety hooks",
+      "tags": [
+        "pi-extension",
+        "surface"
+      ],
+      "complexity": "moderate",
+      "language": "typescript"
+    },
+    {
+      "id": "file:src/dispatcher.ts",
+      "type": "file",
+      "name": "dispatcher",
+      "filePath": "src/dispatcher.ts",
+      "summary": "Idempotency-locked dispatcher with detached poll loop",
+      "tags": [
+        "engine",
+        "core"
+      ],
+      "complexity": "moderate",
+      "language": "typescript"
+    },
+    {
+      "id": "file:src/types.ts",
+      "type": "file",
+      "name": "types",
+      "filePath": "src/types.ts",
+      "summary": "AgentProvider seam, Phase, Plan, LaunchOpts, PollResult",
+      "tags": [
+        "engine",
+        "types"
+      ],
+      "complexity": "moderate",
+      "language": "typescript"
+    },
+    {
+      "id": "file:src/store.ts",
+      "type": "file",
+      "name": "store",
+      "filePath": "src/store.ts",
+      "summary": "File-backed session store with atomic temp+rename writes",
+      "tags": [
+        "engine",
+        "store"
+      ],
+      "complexity": "moderate",
+      "language": "typescript"
+    },
+    {
+      "id": "file:src/cli.ts",
+      "type": "file",
+      "name": "cli",
+      "filePath": "src/cli.ts",
+      "summary": "CLI entry: plan/execute/eval/serve/status/approve/reject/stop",
+      "tags": [
+        "entry",
+        "cli"
+      ],
+      "complexity": "moderate",
+      "language": "typescript"
+    },
+    {
+      "id": "file:src/server.ts",
+      "type": "file",
+      "name": "server",
+      "filePath": "src/server.ts",
+      "summary": "HTTP API with SSE relay, CORS, XSS-safe UI, /health",
+      "tags": [
+        "entry",
+        "server"
+      ],
+      "complexity": "moderate",
+      "language": "typescript"
+    },
+    {
+      "id": "file:src/eval.ts",
+      "type": "file",
+      "name": "eval",
+      "filePath": "src/eval.ts",
+      "summary": "Benchmark harness: plan\u2192judge\u2192scorecard, single dispatcher reuse",
+      "tags": [
+        "entry",
+        "eval"
+      ],
+      "complexity": "moderate",
+      "language": "typescript"
+    },
+    {
+      "id": "file:src/plan.ts",
+      "type": "file",
+      "name": "plan",
+      "filePath": "src/plan.ts",
+      "summary": "StructuredPlan JSON schema, tolerant parsing, markdown rendering",
+      "tags": [
+        "planning",
+        "schema"
+      ],
+      "complexity": "moderate",
+      "language": "typescript"
+    },
+    {
+      "id": "file:src/verify.ts",
+      "type": "file",
+      "name": "verify",
+      "filePath": "src/verify.ts",
+      "summary": "4-lens adversarial panel, verdict parsing, majority-refute",
+      "tags": [
+        "planning",
+        "verification"
+      ],
+      "complexity": "moderate",
+      "language": "typescript"
+    },
+    {
+      "id": "file:src/executor.ts",
+      "type": "file",
+      "name": "executor",
+      "filePath": "src/executor.ts",
+      "summary": "Worktree executor: edit loop, test gate, self-repair",
+      "tags": [
+        "execution"
+      ],
+      "complexity": "moderate",
+      "language": "typescript"
+    },
+    {
+      "id": "file:src/agentLoop.ts",
+      "type": "file",
+      "name": "agentLoop",
+      "filePath": "src/agentLoop.ts",
+      "summary": "OpenAI function-calling loop, configurable maxSteps",
+      "tags": [
+        "tools",
+        "loop"
+      ],
+      "complexity": "moderate",
+      "language": "typescript"
+    },
+    {
+      "id": "file:src/tools.ts",
+      "type": "file",
+      "name": "tools",
+      "filePath": "src/tools.ts",
+      "summary": "Repo tools: list_dir, read_file, grep (ReDoS-hardened)",
+      "tags": [
+        "tools",
+        "repo"
+      ],
+      "complexity": "moderate",
+      "language": "typescript"
+    },
+    {
+      "id": "file:src/execTools.ts",
+      "type": "file",
+      "name": "execTools",
+      "filePath": "src/execTools.ts",
+      "summary": "Exec tools: list_dir, read_file, write_file (sandboxed)",
+      "tags": [
+        "tools",
+        "exec"
+      ],
+      "complexity": "moderate",
+      "language": "typescript"
+    },
+    {
+      "id": "file:src/routing.ts",
+      "type": "file",
+      "name": "routing",
+      "filePath": "src/routing.ts",
+      "summary": "Per-stage model routing, fallback chain, cost meter",
+      "tags": [
+        "infra",
+        "routing"
+      ],
+      "complexity": "moderate",
+      "language": "typescript"
+    },
+    {
+      "id": "file:src/memory.ts",
+      "type": "file",
+      "name": "memory",
+      "filePath": "src/memory.ts",
+      "summary": "Cross-run JSONL memory, planner injection rendering",
+      "tags": [
+        "infra",
+        "memory"
+      ],
+      "complexity": "moderate",
+      "language": "typescript"
+    },
+    {
+      "id": "file:src/audit.ts",
+      "type": "file",
+      "name": "audit",
+      "filePath": "src/audit.ts",
+      "summary": "Append-only audit trail, secret redaction",
+      "tags": [
+        "infra",
+        "audit"
+      ],
+      "complexity": "moderate",
+      "language": "typescript"
+    },
+    {
+      "id": "file:src/redact.ts",
+      "type": "file",
+      "name": "redact",
+      "filePath": "src/redact.ts",
+      "summary": "Secret scrubbing: PEM, Bearer, key=value, by-key-name",
+      "tags": [
+        "infra",
+        "security"
+      ],
+      "complexity": "moderate",
+      "language": "typescript"
+    },
+    {
+      "id": "file:src/repoSnapshot.ts",
+      "type": "file",
+      "name": "repoSnapshot",
+      "filePath": "src/repoSnapshot.ts",
+      "summary": "Git SHA/branch/dirty snapshot at launch",
+      "tags": [
+        "infra",
+        "git"
+      ],
+      "complexity": "moderate",
+      "language": "typescript"
+    },
+    {
+      "id": "file:src/worktree.ts",
+      "type": "file",
+      "name": "worktree",
+      "filePath": "src/worktree.ts",
+      "summary": "Git worktree create, commit, patch, PR via gh CLI",
+      "tags": [
+        "infra",
+        "git"
+      ],
+      "complexity": "moderate",
+      "language": "typescript"
+    },
+    {
+      "id": "file:src/providers/deepseek/chat.ts",
+      "type": "file",
+      "name": "chat",
+      "filePath": "src/providers/deepseek/chat.ts",
+      "summary": "OpenAI /chat/completions transport with cost metering",
+      "tags": [
+        "provider",
+        "transport"
+      ],
+      "complexity": "moderate",
+      "language": "typescript"
+    },
+    {
+      "id": "file:src/providers/deepseek/planners.ts",
+      "type": "file",
+      "name": "planners",
+      "filePath": "src/providers/deepseek/planners.ts",
+      "summary": "Multi-lens fan-out: pragmatist, adversary, scale, maintainer",
+      "tags": [
+        "provider",
+        "planning"
+      ],
+      "complexity": "moderate",
+      "language": "typescript"
+    },
+    {
+      "id": "file:src/providers/deepseek/synthesis.ts",
+      "type": "file",
+      "name": "synthesis",
+      "filePath": "src/providers/deepseek/synthesis.ts",
+      "summary": "Structured JSON reconciliation with parse-retry",
+      "tags": [
+        "provider",
+        "planning"
+      ],
+      "complexity": "moderate",
+      "language": "typescript"
+    },
+    {
+      "id": "file:src/providers/deepseek/repair.ts",
+      "type": "file",
+      "name": "repair",
+      "filePath": "src/providers/deepseek/repair.ts",
+      "summary": "Plan repair: fold verification critique into plan",
+      "tags": [
+        "provider",
+        "planning"
+      ],
+      "complexity": "moderate",
+      "language": "typescript"
+    },
+    {
+      "id": "file:src/providers/deepseek/index.ts",
+      "type": "file",
+      "name": "index",
+      "filePath": "src/providers/deepseek/index.ts",
+      "summary": "AgentProvider orchestrator: launch/poll/approve/execute",
+      "tags": [
+        "provider",
+        "orchestrator"
+      ],
+      "complexity": "moderate",
+      "language": "typescript"
+    },
+    {
+      "id": "file:src/providers/deepseek.ts",
+      "type": "file",
+      "name": "deepseek",
+      "filePath": "src/providers/deepseek.ts",
+      "summary": "Barrel re-export for deepseek provider sub-modules",
+      "tags": [
+        "provider"
+      ],
+      "complexity": "moderate",
+      "language": "typescript"
+    },
+    {
+      "id": "file:package.json",
+      "type": "config",
+      "name": "package.json",
+      "filePath": "package.json",
+      "summary": "Manifest: scripts, deps, pi extension config",
+      "tags": [
+        "manifest"
+      ],
+      "complexity": "simple",
+      "language": "json"
+    },
+    {
+      "id": "file:tsconfig.json",
+      "type": "config",
+      "name": "tsconfig.json",
+      "filePath": "tsconfig.json",
+      "summary": "TypeScript compiler configuration",
+      "tags": [
+        "build"
+      ],
+      "complexity": "simple",
+      "language": "json"
+    },
+    {
+      "id": "file:.env.example",
+      "type": "config",
+      "name": ".env.example",
+      "filePath": ".env.example",
+      "summary": "Environment template: PI_BASE_URL, PI_API_KEY",
+      "tags": [
+        "env"
+      ],
+      "complexity": "simple",
+      "language": "config"
+    },
+    {
+      "id": "file:README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "README.md",
+      "summary": "Architecture, setup, usage, provider swap",
+      "tags": [
+        "docs"
+      ],
+      "complexity": "simple",
+      "language": "markdown"
+    },
+    {
+      "id": "file:ROADMAP.md",
+      "type": "document",
+      "name": "ROADMAP.md",
+      "filePath": "ROADMAP.md",
+      "summary": "8-phase roadmap, all complete",
+      "tags": [
+        "docs"
+      ],
+      "complexity": "simple",
+      "language": "markdown"
+    },
+    {
+      "id": "file:tests/pure.test.ts",
+      "type": "file",
+      "name": "pure.test.ts",
+      "filePath": "tests/pure.test.ts",
+      "summary": "29 vitest unit tests: extractJson, parseStructuredPlan, parseVerdict, parseScore, redact",
+      "tags": [
+        "testing"
+      ],
+      "complexity": "moderate",
+      "language": "typescript"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:extensions/ultraplan.ts",
+      "target": "file:src/dispatcher.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source": "file:extensions/ultraplan.ts",
+      "target": "file:src/providers/deepseek.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source": "file:extensions/ultraplan.ts",
+      "target": "file:src/store.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source": "file:extensions/ultraplan.ts",
+      "target": "file:src/audit.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source": "file:extensions/ultraplan.ts",
+      "target": "file:src/eval.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source": "file:src/dispatcher.ts",
+      "target": "file:src/types.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source": "file:src/providers/deepseek/index.ts",
+      "target": "file:src/store.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source": "file:src/providers/deepseek/index.ts",
+      "target": "file:src/routing.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source": "file:src/providers/deepseek/index.ts",
+      "target": "file:src/repoSnapshot.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source": "file:src/providers/deepseek/index.ts",
+      "target": "file:src/plan.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source": "file:src/providers/deepseek/index.ts",
+      "target": "file:src/verify.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source": "file:src/providers/deepseek/index.ts",
+      "target": "file:src/executor.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source": "file:src/providers/deepseek/index.ts",
+      "target": "file:src/memory.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source": "file:src/providers/deepseek/index.ts",
+      "target": "file:src/audit.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source": "file:src/providers/deepseek/index.ts",
+      "target": "file:src/redact.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source": "file:src/providers/deepseek/index.ts",
+      "target": "file:src/providers/deepseek/chat.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source": "file:src/providers/deepseek/index.ts",
+      "target": "file:src/providers/deepseek/planners.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source": "file:src/providers/deepseek/index.ts",
+      "target": "file:src/providers/deepseek/synthesis.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source": "file:src/providers/deepseek/index.ts",
+      "target": "file:src/providers/deepseek/repair.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source": "file:src/providers/deepseek/planners.ts",
+      "target": "file:src/agentLoop.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source": "file:src/providers/deepseek/planners.ts",
+      "target": "file:src/tools.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source": "file:src/providers/deepseek/planners.ts",
+      "target": "file:src/memory.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source": "file:src/providers/deepseek/planners.ts",
+      "target": "file:src/routing.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source": "file:src/providers/deepseek/planners.ts",
+      "target": "file:src/store.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source": "file:src/providers/deepseek/planners.ts",
+      "target": "file:src/providers/deepseek/chat.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source": "file:src/providers/deepseek/synthesis.ts",
+      "target": "file:src/plan.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source": "file:src/providers/deepseek/synthesis.ts",
+      "target": "file:src/providers/deepseek/chat.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source": "file:src/providers/deepseek/repair.ts",
+      "target": "file:src/plan.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source": "file:src/providers/deepseek/repair.ts",
+      "target": "file:src/providers/deepseek/chat.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source": "file:src/providers/deepseek/chat.ts",
+      "target": "file:src/routing.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source": "file:src/executor.ts",
+      "target": "file:src/agentLoop.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source": "file:src/executor.ts",
+      "target": "file:src/execTools.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source": "file:src/executor.ts",
+      "target": "file:src/plan.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source": "file:src/executor.ts",
+      "target": "file:src/worktree.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source": "file:src/cli.ts",
+      "target": "file:src/dispatcher.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source": "file:src/cli.ts",
+      "target": "file:src/providers/deepseek.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source": "file:src/cli.ts",
+      "target": "file:src/store.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source": "file:src/cli.ts",
+      "target": "file:src/eval.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source": "file:src/cli.ts",
+      "target": "file:src/server.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source": "file:src/cli.ts",
+      "target": "file:src/audit.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source": "file:src/server.ts",
+      "target": "file:src/dispatcher.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source": "file:src/server.ts",
+      "target": "file:src/providers/deepseek.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source": "file:src/server.ts",
+      "target": "file:src/store.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source": "file:src/eval.ts",
+      "target": "file:src/dispatcher.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source": "file:src/eval.ts",
+      "target": "file:src/providers/deepseek.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source": "file:src/eval.ts",
+      "target": "file:src/plan.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source": "file:src/eval.ts",
+      "target": "file:src/store.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source": "file:src/agentLoop.ts",
+      "target": "file:src/routing.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source": "file:src/execTools.ts",
+      "target": "file:src/tools.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source": "file:src/audit.ts",
+      "target": "file:src/redact.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source": "file:README.md",
+      "target": "file:src/dispatcher.ts",
+      "type": "documents",
+      "weight": 0.5,
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source": "file:README.md",
+      "target": "file:src/types.ts",
+      "type": "documents",
+      "weight": 0.5,
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source": "file:ROADMAP.md",
+      "target": "file:README.md",
+      "type": "documents",
+      "weight": 0.5,
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source": "file:package.json",
+      "target": "file:extensions/ultraplan.ts",
+      "type": "configures",
+      "weight": 0.6,
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source": "file:tsconfig.json",
+      "target": "file:package.json",
+      "type": "configures",
+      "weight": 0.5,
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source": "file:.env.example",
+      "target": "file:package.json",
+      "type": "configures",
+      "weight": 0.5,
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source": "file:tests/pure.test.ts",
+      "target": "file:src/plan.ts",
+      "type": "tested_by",
+      "weight": 0.5,
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source": "file:tests/pure.test.ts",
+      "target": "file:src/verify.ts",
+      "type": "tested_by",
+      "weight": 0.5,
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source": "file:tests/pure.test.ts",
+      "target": "file:src/eval.ts",
+      "type": "tested_by",
+      "weight": 0.5,
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source": "file:tests/pure.test.ts",
+      "target": "file:src/redact.ts",
+      "type": "tested_by",
+      "weight": 0.5,
+      "confidence": "EXTRACTED"
+    }
+  ],
+  "layers": [
+    {
+      "id": "layer:extension",
+      "name": "Extension Surface",
+      "description": "Pi extension: tools, commands, TUI, safety hooks",
+      "nodeIds": [
+        "file:extensions/ultraplan.ts"
+      ]
+    },
+    {
+      "id": "layer:engine",
+      "name": "Engine Core",
+      "description": "Provider-agnostic dispatcher, types, store",
+      "nodeIds": [
+        "file:src/dispatcher.ts",
+        "file:src/types.ts",
+        "file:src/store.ts"
+      ]
+    },
+    {
+      "id": "layer:provider",
+      "name": "DeepSeek Provider",
+      "description": "5-stage pipeline: chat, planners, synthesis, repair, orchestrator",
+      "nodeIds": [
+        "file:src/providers/deepseek/chat.ts",
+        "file:src/providers/deepseek/planners.ts",
+        "file:src/providers/deepseek/synthesis.ts",
+        "file:src/providers/deepseek/repair.ts",
+        "file:src/providers/deepseek/index.ts",
+        "file:src/providers/deepseek.ts"
+      ]
+    },
+    {
+      "id": "layer:planning",
+      "name": "Planning & Verification",
+      "description": "StructuredPlan, adversarial panel, worktree executor",
+      "nodeIds": [
+        "file:src/plan.ts",
+        "file:src/verify.ts",
+        "file:src/executor.ts"
+      ]
+    },
+    {
+      "id": "layer:infra",
+      "name": "Infrastructure",
+      "description": "Routing, cost, memory, audit, redaction, git",
+      "nodeIds": [
+        "file:src/routing.ts",
+        "file:src/memory.ts",
+        "file:src/audit.ts",
+        "file:src/redact.ts",
+        "file:src/repoSnapshot.ts",
+        "file:src/worktree.ts"
+      ]
+    },
+    {
+      "id": "layer:tools",
+      "name": "Tool Loop & Repo Tools",
+      "description": "Function-calling loop, sandboxed exploration/execution",
+      "nodeIds": [
+        "file:src/agentLoop.ts",
+        "file:src/tools.ts",
+        "file:src/execTools.ts"
+      ]
+    },
+    {
+      "id": "layer:entry",
+      "name": "Entry Points",
+      "description": "CLI, HTTP server, benchmark eval",
+      "nodeIds": [
+        "file:src/cli.ts",
+        "file:src/server.ts",
+        "file:src/eval.ts"
+      ]
+    },
+    {
+      "id": "layer:config",
+      "name": "Configuration",
+      "description": "Manifest, TypeScript config, env template",
+      "nodeIds": [
+        "file:package.json",
+        "file:tsconfig.json",
+        "file:.env.example"
+      ]
+    },
+    {
+      "id": "layer:docs",
+      "name": "Documentation",
+      "description": "README, ROADMAP",
+      "nodeIds": [
+        "file:README.md",
+        "file:ROADMAP.md"
+      ]
+    },
+    {
+      "id": "layer:tests",
+      "name": "Tests",
+      "description": "29 unit tests",
+      "nodeIds": [
+        "file:tests/pure.test.ts"
+      ]
+    }
+  ],
+  "tour": [
+    {
+      "order": 1,
+      "title": "Overview",
+      "description": "README + ROADMAP for architecture and feature matrix",
+      "nodeIds": [
+        "file:README.md",
+        "file:ROADMAP.md"
+      ]
+    },
+    {
+      "order": 2,
+      "title": "Engine Core",
+      "description": "AgentProvider seam, idempotency-locked Dispatcher, atomic store",
+      "nodeIds": [
+        "file:src/types.ts",
+        "file:src/dispatcher.ts",
+        "file:src/store.ts"
+      ]
+    },
+    {
+      "order": 3,
+      "title": "Provider Pipeline",
+      "description": "Chat \u2192 planners \u2192 synthesis \u2192 repair \u2192 orchestrator",
+      "nodeIds": [
+        "file:src/providers/deepseek/chat.ts",
+        "file:src/providers/deepseek/planners.ts",
+        "file:src/providers/deepseek/synthesis.ts",
+        "file:src/providers/deepseek/repair.ts",
+        "file:src/providers/deepseek/index.ts"
+      ]
+    },
+    {
+      "order": 4,
+      "title": "Planning & Verify",
+      "description": "StructuredPlan, 4-lens panel, majority-refute",
+      "nodeIds": [
+        "file:src/plan.ts",
+        "file:src/verify.ts"
+      ]
+    },
+    {
+      "order": 5,
+      "title": "Execution",
+      "description": "Worktree edits \u2192 test gate \u2192 self-repair \u2192 PR/patch",
+      "nodeIds": [
+        "file:src/executor.ts",
+        "file:src/worktree.ts",
+        "file:src/execTools.ts"
+      ]
+    },
+    {
+      "order": 6,
+      "title": "Infrastructure",
+      "description": "Routing, cost, memory, audit, redaction",
+      "nodeIds": [
+        "file:src/routing.ts",
+        "file:src/memory.ts",
+        "file:src/audit.ts",
+        "file:src/redact.ts"
+      ]
+    },
+    {
+      "order": 7,
+      "title": "Pi Extension",
+      "description": "8 tools, 2 commands, footer, status, recovery",
+      "nodeIds": [
+        "file:extensions/ultraplan.ts"
+      ]
+    },
+    {
+      "order": 8,
+      "title": "Entry Points & Tests",
+      "description": "CLI, HTTP API, eval harness, 29 unit tests",
+      "nodeIds": [
+        "file:src/cli.ts",
+        "file:src/server.ts",
+        "file:src/eval.ts",
+        "file:tests/pure.test.ts"
+      ]
+    }
+  ]
+}

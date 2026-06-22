@@ -1,0 +1,12 @@
+[
+  {
+    "id": "health-endpoint",
+    "prompt": "Add a GET /health endpoint to the HTTP server that returns 200 with a JSON body { status: \"ok\" }.",
+    "rubric": "A strong plan names the server file, adds the route without breaking existing routes, and verifies the 200 JSON response."
+  },
+  {
+    "id": "rate-limit",
+    "prompt": "Add a simple in-memory rate limiter middleware that caps each client IP to 100 requests per minute and returns 429 when exceeded.",
+    "rubric": "A strong plan covers the sliding/fixed window, per-IP keying, the 429 response, cleanup of stale entries, and a test for the limit boundary."
+  }
+]

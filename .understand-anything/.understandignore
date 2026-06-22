@@ -1,0 +1,32 @@
+# .understandignore — patterns for files/dirs to exclude from analysis
+# Syntax: same as .gitignore (globs, # comments, ! negation, trailing / for dirs)
+# Lines below are suggestions — uncomment to activate.
+# Use ! prefix to force-include something excluded by defaults.
+#
+# Built-in defaults (always excluded unless negated):
+#   node_modules/, .git/, dist/, build/, obj/, *.lock, *.min.js, etc.
+#
+# --- From .gitignore (uncomment to exclude) ---
+
+# *.tmp
+# .DS_Store
+# .env
+# .env.local
+# graphify-out/cache/
+# graphify-out/.graphify_analysis.json
+# graphify-out/.graphify_semantic_marker
+# graphify-out/.graphify_labels.json
+# graphify-out/.graphify_root
+# graphify-out/.DS_Store
+# .pi/ultraplan/sessions/
+# .vitest-cache/
+
+# --- Detected directories (uncomment to exclude) ---
+
+# tests/
+
+# --- Test file patterns (uncomment to exclude) ---
+
+# *.test.*
+# *.spec.*
+# *.snap

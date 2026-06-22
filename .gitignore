@@ -1,0 +1,10 @@
+node_modules/
+dist/
+.cache/
+*.tmp
+.DS_Store
+.env
+.env.local
+graphify-out/
+.pi/ultraplan/sessions/
+.vitest-cache/

@@ -1,0 +1,7 @@
+tests/
+benchmarks/
+.pi-test/
+.pi/
+.understand-anything/
+.DS_Store
+*.tmp
