@@ -21,6 +21,7 @@
   "files": [
     "extensions/",
     "src/",
+    "a-pi-logo.png",
     ".env.example",
     "README.md",
     "ROADMAP.md",
@@ -29,7 +30,8 @@
   "pi": {
     "extensions": [
       "./extensions"
-    ]
+    ],
+    "image": "https://raw.githubusercontent.com/KcAnom/pi-ultraplan/main/a-pi-logo.png"
   },
   "scripts": {
     "serve": "tsx src/cli.ts serve",
